@@ -1,22 +1,7 @@
 import React, { useState, useRef, useEffect, useMemo, useCallback } from 'react';
 import axios from 'axios';
 import { motion } from "framer-motion";
-
-export const useGet = url => {
-  const [data, setData] = useState(null);
-  if (!url) return console.warn('url is undefined!!');
-  useEffect(() => axios.get(url).then(({data}) => setData(data)), [url]);
-  return data;
-}
-
-export const useTitle = (defaultTitle = '') => {
-  const [title, setTitle] = useState(defaultTitle);
-  useEffect(() => {
-    const htmlTitle = document.querySelector('title');
-    htmlTitle.innerText = title;
-  }, [title]);
-  return setTitle;
-}
+import _ from 'lodash';
 
 export const PageAnimate = props => {
   if (!props.children) return console.warn('애니메이션 할 요소가 없습니다.');
@@ -62,4 +47,18 @@ export const PageAnimate = props => {
       {props.children}
     </motion.div>
   )
+}
+
+export const useTitle = (defaultTitle = '') => {
+  const [title, setTitle] = useState(defaultTitle);
+  useEffect(() => {
+    const htmlTitle = document.querySelector('title');
+    htmlTitle.innerText = title;
+  }, [title]);
+  return setTitle;
+}
+
+export const useCleanArray = (allArr = [], fieldName) => {
+  if (!fieldName) return console.warn('Key값이 없습니다.');
+  return _.uniqBy(allArr, fieldName);
 }
