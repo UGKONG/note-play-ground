@@ -43,7 +43,7 @@ export const PageAnimate = props => {
       _out = { opacity: 0 }
   }
   return (
-    <motion.div initial={_out} animate={_in} exit={_out} transition={{ duration }} >
+    <motion.div initial={_out} animate={_in} exit={_out} transition={{ duration }} style={{ width: '100%', height: '100%', position: 'relative' }}>
       {props.children}
     </motion.div>
   )

@@ -7,7 +7,7 @@ module.exports = {
     alias: {
       '@': __dirname + '/src/',
       '@modules': __dirname + '/modules/',
-      '@styles': __dirname + '/modules/styles.js',
+      '@styles': __dirname + '/modules/common.scss',
       '@reset': __dirname + '/public/reset.scss',
       '@react-hook': __dirname + '/modules/reactHook.js',
     }

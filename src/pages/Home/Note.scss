@@ -1,0 +1,86 @@
+@import '@styles';
+
+@mixin default {
+  background-color: transparent;
+  border: 1px solid transparent;
+  outline: none;
+  resize: none;
+}
+@mixin hover {
+  border: 1px solid #e9be8a;
+}
+@mixin focus {
+  color: #000;
+  border: 1px solid #e9be8a;
+  background-color: #fff2e1;
+}
+
+.Note {
+  @include size(250px, 300px);
+  @include border(1px solid #f3d5b1, 10px);
+  box-shadow: 0 2px 4px $bg;
+  margin: 5px;
+  float: left;
+  overflow: hidden;
+  padding: 10px 10px 5px;
+
+  &:hover {border-color: #e9be8a;}
+
+  .options {
+    @include size(auto, 20px);
+    @include flex(flex-end);
+    margin: 0 auto;
+
+    .span-wrap {
+      @include flex(flex-end);
+      height: 100%;
+      cursor: pointer;
+      padding: 0 5px;
+
+      & > span {
+        @include size(4px, 4px);
+        border-radius: 10px;
+        background-color: #ffa50050;
+        margin: 0 1px
+      }
+
+      &:hover > span {background-color: #ffa500cc;}
+    }
+  }
+
+  .title {
+    @include size(100%, 40px);
+    @include flex(center);
+    align-items: flex-start;
+
+    & > input {
+      @include font(13px, 500, $darkGray, 1px);
+      @include size(100%, 30px);
+      @include default();
+      padding: 0 5px;
+
+      &:hover {@include hover();}
+      &:focus {@include focus();}
+    }
+  }
+
+  & > textarea {
+    @include wrap();
+    @include font(13px, 400, $darkGray, 1px);
+    @include size(100%, calc(100% - 80px));
+    @include default();
+    padding: 5px;
+
+    &:hover {@include hover();}
+    &:focus {@include focus();}
+  }
+
+  .date {
+    @include size(100%, 20px);
+    @include font(11px, 400, $gray, 1px);
+    @include flex(space-between);
+    padding-top: 3px;
+
+    & > span:last-of-type {color: #855313cb;}
+  }
+}

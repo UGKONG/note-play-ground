@@ -1,0 +1,12 @@
+@import '@styles';
+
+#App {
+  @include size(100%, 100%);
+  overflow: hidden;
+
+  & > div {
+    @include size(100%, 100%);
+    @include position-top-left(fixed, 0, 0);
+    background-color: rgb(244, 250, 240);
+  }
+}

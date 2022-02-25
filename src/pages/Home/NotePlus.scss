@@ -1,0 +1,28 @@
+@import '@styles';
+
+.NotePlus {
+  @include size(60px, 60px);
+  @include flex(center);
+  @include border(1px solid rgb(235, 210, 179), 50%);
+  @include position-bottom-right(fixed, 50px, 50px);
+  background-color: bisque;
+  box-shadow: 0 2px 4px #00000020;
+  cursor: pointer;
+
+  &:hover {background-color: rgb(252, 217, 174);}
+  &:active {background-color: rgb(247, 207, 158);}
+
+  & > div {
+    @include wrap();
+
+    & > span {
+      @include position-top-left(absolute, 50%, 50%);
+      @include size(20px, 3px);
+      background-color: #d7bea0;
+      &:first-of-type {transform: translate(-50%, -50%) rotate(0deg);}
+      &:last-of-type {transform: translate(-50%, -50%) rotate(90deg);}
+    }
+
+    &:hover > span {background-color: #c99658;}
+  }
+}

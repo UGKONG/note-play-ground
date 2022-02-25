@@ -1,101 +1,14 @@
 @charset 'utf-8';
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
 @import url('https://use.fontawesome.com/releases/v5.15.4/css/all.css');
-
-// Variable
-$gray: #777;
-$whiteGray: #ddd;
-$whiteGrayHover: #ccc;
-$whiteGrayActive: #bbb;
-$darkGray: #555;
-$red: #ff4f4f;
-$blue: #4952f8;
-$green: #00c100;
-$white: #fff;
-$whiteBlack: #333;
-$black: #282828;
-$orange: #f88629;
-$yellow: #f7d740;
-$purple: #ab14fc;
-$pink: #fb44e4;
-$navy: #5a02aa;
-$bg: #00000020;
-
-$index1: 5;
-$index2: 10;
-$index3: 15;
-$index4: 20;
-$index5: 25;
-$index6: 30;
-$index9: 99999999999999999999;
-
-// Mixin
-@mixin flex($dir: flex-start, $option: row, $wrap: nowrap) {
-  display: flex;
-  align-items: center;
-  justify-content: $dir;
-  flex-flow: $option;
-  flex-wrap: $wrap;
-}
-@mixin font($size: inherit, $weight: inherit, $color: inherit, $spacing: auto) {
-  font-size: $size;
-  font-weight: $weight;
-  color: $color;
-  letter-spacing: $spacing;
-}
-
-@mixin text-overflow {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-@mixin wrap($box: block) {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  display: $box;
-}
-
-@mixin search-input-wrap() {
-  padding: 12px 16px;
-  background-color: #eee;
-  width: 100%;
-  @include flex-start();
-  margin-bottom: 20px;
-}
-
-@mixin background-reset($size: contain) {
-  background-repeat: no-repeat;
-  background-size: $size;
-  background-position: center;
-}
-
-@mixin position($po: fixed, $top: unset, $right: unset, $bottom: unset, $left: unset, $translate: unset) {
-  position: $po;
-  top: $top;
-  right: $right;
-  bottom: $bottom;
-  left: $left;
-  transform: $translate;
-}
-
-@mixin size($w: static, $h: static) {
-  width: $w;
-  height: $h;
-}
-
-@mixin border($border: auto, $radius: auto) {
-  border: $border;
-  border-radius: $radius;
-}
-
+@import '@styles';
 
 // Reset
 * {
   margin: 0;
   padding: 0;
   color: inherit;
+  transition: .3s;
   list-style: none;
   user-select: none;
   text-decoration: none;
@@ -105,25 +18,31 @@ $index9: 99999999999999999999;
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
-html, body, #root {
+html, body, #root, main {
   @include wrap();
   overflow: hidden;
 }
 button, a[btn] {
-  @include border(none, 3px);
-  @include font(14px, unset, $darkGray);
-  background-color: $whiteGray;
-  padding: 5px 14px;
-  margin: 0 4px;
+  @include font(13px, 400, #fff);
+  @include border(1px solid #00ada9, 3px);
+  background-color: #00ada9;
+  padding: 0 12px;
+  height: 30px;
+  margin: 0 0 0 5px;
   cursor: pointer;
 
-  &:hover {
-    background-color: $whiteGrayHover;
-    color: $whiteBlack;
+  &:not(&:disabled):hover {
+    background-color: #00a8a4;
   }
-  &:active {
-    background-color: $whiteGrayActive;
-    color: $black;
+  &:not(&:disabled):focus {
+    outline: 0;
+    box-shadow: 0 0 0 4px #00bfbb40;
+  }
+  &:not(&:disabled):active {
+    background-color: #00a29d;
+  }
+  &:disabled {
+    cursor: default;
   }
 }
 table {
@@ -132,7 +51,7 @@ table {
   border-collapse: collapse;
 
   thead {
-    @include position(sticky, -1px);
+    @include position-top-left(sticky, -1px);
     background-color: #f5f5f5;
     z-index: $index1;
 
