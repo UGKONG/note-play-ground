@@ -6,9 +6,11 @@ module.exports = {
     extensions: ['.js', '.jsx'],
     alias: {
       '@': __dirname + '/src/',
+      '@API': __dirname + '/modules/API.js',
       '@modules': __dirname + '/modules/',
       '@styles': __dirname + '/modules/common.scss',
       '@reset': __dirname + '/public/reset.scss',
+      '@functions': __dirname + '/modules/functions.js',
       '@react-hook': __dirname + '/modules/reactHook.js',
     }
   },

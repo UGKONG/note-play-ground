@@ -5,6 +5,7 @@ import API from '@modules/API';
 import _ from 'lodash';
 import Note from './Note';
 import NotePlus from './NotePlus';
+import './index.scss';
 
 const Home = () => {
   const [noteList, setNoteList] = useState([]);
@@ -23,7 +24,7 @@ const Home = () => {
   
   return (
     <PageAnimate name='slide-up'>
-      <ul style={{ width: '100%', height: '100%', padding: 5, overflow: 'auto' }}>
+      <ul className='note-list'>
         {noteList.map(item => <Note key={item.id} item={item}/>)}
         <NotePlus getNoteList={getNoteList} />
       </ul>

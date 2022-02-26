@@ -175,6 +175,10 @@ export const useToday = (day = new Date()) => {
   return (`${y}-${m}-${d}`);
 }
 
+export const useNow = () => {
+  return useDateFormat() + ' ' + useTimeFormat();
+}
+
 // 배열의 프로퍼티 value중 가장 높은 Object 반환
 export const useMaxArr = (arr = [], prop = '') => {
   let temp = arr.sort((a, b) => Number(a[prop]) - Number(b[prop]));

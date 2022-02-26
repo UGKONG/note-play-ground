@@ -4,7 +4,7 @@
   @include size(60px, 60px);
   @include flex(center);
   @include border(1px solid rgb(235, 210, 179), 50%);
-  @include position-bottom-right(fixed, 50px, 50px);
+  @include position-bottom-right(fixed, 20px, 20px);
   background-color: bisque;
   box-shadow: 0 2px 4px #00000020;
   cursor: pointer;

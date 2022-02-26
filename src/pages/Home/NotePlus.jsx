@@ -2,7 +2,7 @@
 import React from 'react';
 import API from '@modules/API';
 import './NotePlus.scss';
-import { useDateFormat, useTimeFormat } from '@modules/functions';
+import { useNow } from '@modules/functions';
 
 const NotePlus = ({ getNoteList }) => {
 
@@ -11,7 +11,7 @@ const NotePlus = ({ getNoteList }) => {
       color: '#fde7cc',
       title: '',
       contents: '',
-      date: useDateFormat() + ' ' + useTimeFormat(),
+      date: useNow(),
     }
     API.post('/noteList.json', data).then(res => {
       console.log(res.status);
